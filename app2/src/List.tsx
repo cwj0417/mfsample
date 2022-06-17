@@ -29,7 +29,7 @@ const List: FC<{
     key: 'companyTaxNo',
     width: '200px',
   }, {
-    title: '状态123213',
+    title: '状态',
     dataIndex: 'status',
     key: 'status',
     width: '130px',

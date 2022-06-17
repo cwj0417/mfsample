@@ -7,6 +7,7 @@ module.exports = {
   entry: "./src/index",
   mode: "development",
   devServer: {
+    allowedHosts: 'all',
     static: path.join(__dirname, "dist"),
     port: 3001,
     proxy: {

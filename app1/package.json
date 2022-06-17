@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack"
+    "build": "webpack --config webpack.config.build.js"
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.17.12",

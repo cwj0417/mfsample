@@ -6,7 +6,7 @@ import { getList, checkStatus } from './requests';
 import type { listitem } from './types';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-const List = lazy(() => import('app2/App'))
+const List = lazy(() => import('remoteApp/Component'))
 
 const App: FC<{
   tid: string,

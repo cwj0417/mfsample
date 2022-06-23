@@ -1,0 +1,1 @@
+include: 'http://gitlab4.0.xforceplus.com/common/react-gitlabci4/raw/master-devops-try_files/ci/.gitlab-ci.yml'

@@ -2,28 +2,31 @@
   "name": "@xforceplus/full-elec-login",
   "private": false,
   "version": "1.0.0",
-  "main": "npmdist/index.js",
+  "main": "dist/npm/index.js",
   "license": "MIT",
   "scripts": {
     "start": "webpack serve",
-    "build": "webpack --config webpack.config.build.js"
+    "build": "pnpm buildscript & pnpm buildnpm",
+    "buildscript": "webpack --config webpack.config.build.js",
+    "buildnpm": "webpack --config webpack.config.build.npm.js"
   },
   "dependencies": {
-    "@babel/preset-typescript": "^7.17.12",
     "antd": "3",
     "axios": "^0.27.2",
-    "css-loader": "^6.7.1",
     "react": "16",
-    "react-dom": "16",
-    "style-loader": "^3.3.1",
-    "typescript": "link:@babel/preset/typescript"
+    "react-dom": "16"
   },
   "devDependencies": {
     "@babel/core": "^7.14.3",
     "@babel/preset-react": "^7.13.13",
+    "@babel/preset-typescript": "^7.17.12",
+    "@xforce/babel-preset-xforce": "^0.1.0",
     "babel-loader": "^8.2.2",
+    "css-loader": "^6.7.1",
     "external-remotes-plugin": "^1.0.0",
     "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^3.3.1",
+    "typescript": "link:@babel/preset/typescript",
     "webpack": "^5.38.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^4.0.0"

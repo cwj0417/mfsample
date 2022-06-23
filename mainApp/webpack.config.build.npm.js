@@ -3,18 +3,27 @@ const ExternalTemplateRemotesPlugin = require("external-remotes-plugin");
 
 module.exports = {
     mode: 'development',
-    entry: "./src/compEntry",
+    optimization: {
+        splitChunks: false,
+    },
+    entry: "./src/App.tsx",
+    externals: {
+        react: 'react',
+        'react-dom': 'react-dom',
+        antd: 'antd',
+        axios: 'axios',
+    },
     output: {
-        filename: 'script/index.js',
-        // libraryTarget: 'umd',
+        filename: 'npm/index.js',
+        libraryTarget: 'umd',
         // umdNamedDefine: true,
         // chunkFilename: "chunk.[chunkhash].[name].js"
 
-        library: {
-            name: 'fullElecLoginFeComponent',
-            type: 'window',
-            export: 'default',
-        }
+        // library: {
+        //     name: 'fullElecLoginFeComponent',
+        //     type: 'umd',
+        //     export: 'default',
+        // }
     },
     resolve: {
         extensions: [".js", ".jsx", ".ts", ".tsx"],

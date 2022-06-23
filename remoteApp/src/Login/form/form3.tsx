@@ -27,7 +27,7 @@ const Form3: FC<{
   const [qrCode, setQrCode] = useState('');
   const [scanTip, setScanTip] = useState('');
 
-  const pollingHandler = useRef(0);
+  const pollingHandler = useRef<NodeJS.Timer>();
 
   useEffect(() => {
     fetchQrCode();

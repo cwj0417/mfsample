@@ -1,7 +1,8 @@
 {
-  "name": "app1",
+  "name": "@xforceplus/full-elec-login",
+  "private": false,
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "npmdist/index.js",
   "license": "MIT",
   "scripts": {
     "start": "webpack serve",
@@ -9,8 +10,8 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.17.12",
-    "@xforce/standard-http-request": "^1.0.1",
     "antd": "3",
+    "axios": "^0.27.2",
     "css-loader": "^6.7.1",
     "react": "16",
     "react-dom": "16",

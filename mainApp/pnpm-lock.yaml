@@ -4,8 +4,8 @@ specifiers:
   '@babel/core': ^7.14.3
   '@babel/preset-react': ^7.13.13
   '@babel/preset-typescript': ^7.17.12
-  '@xforce/standard-http-request': ^1.0.1
   antd: '3'
+  axios: ^0.27.2
   babel-loader: ^8.2.2
   css-loader: ^6.7.1
   external-remotes-plugin: ^1.0.0
@@ -20,8 +20,8 @@ specifiers:
 
 dependencies:
   '@babel/preset-typescript': 7.17.12_@babel+core@7.18.5
-  '@xforce/standard-http-request': 1.0.1
   antd: 3.26.20_wcqkhtmu7mswc6yz4uyexck3ty
+  axios: 0.27.2
   css-loader: 6.7.1_webpack@5.73.0
   react: 16.14.0
   react-dom: 16.14.0_react@16.14.0
@@ -702,15 +702,6 @@ packages:
       webpack-cli: 4.10.0_hnfkmnck6ti4dm6ulhhz44v2ju
       webpack-dev-server: 4.9.2_77l47gmqkrqiei5z7sbwz5iaj4
 
-  /@xforce/standard-http-request/1.0.1:
-    resolution: {integrity: sha512-85ffx+WXWsPNtN6Fe5z96ojT/AhW2Gw9nfcVL0rm8II4+ZvnVRh/9WUO2uNZBuUvp4RKh5B4l4Q4Byqp5Cb6Cw==}
-    dependencies:
-      axios: 0.18.1
-      js-cookie: 2.2.1
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /@xtuc/ieee754/1.2.0:
     resolution: {integrity: sha1-7vAUoxRa5Hehy8AM0eVSM23Ot5A=}
 
@@ -886,13 +877,17 @@ packages:
     resolution: {integrity: sha1-nUPPSe9rt2vlRCOI0Z+5puR1l+o=}
     dev: false
 
-  /axios/0.18.1:
-    resolution: {integrity: sha1-/z8N4ue10YDnV62YAA8Qgbh7zqM=}
+  /asynckit/0.4.0:
+    resolution: {integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=}
+    dev: false
+
+  /axios/0.27.2:
+    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
     dependencies:
-      follow-redirects: 1.5.10
-      is-buffer: 2.0.5
+      follow-redirects: 1.15.1
+      form-data: 4.0.0
     transitivePeerDependencies:
-      - supports-color
+      - debug
     dev: false
 
   /babel-loader/8.2.5_te6ollfzjcco6mbxjl755ucqke:
@@ -1068,6 +1063,13 @@ packages:
   /colorette/2.0.18:
     resolution: {integrity: sha512-rHDY1i4V4JBCXHnHwaVyA202CKSj2kUrjI5cSJQbTdnFeI4ShV3e19Fe7EQfzL2tjSrvYyWugdGAtEc1lLvGDg==}
 
+  /combined-stream/1.0.8:
+    resolution: {integrity: sha1-w9RaizT9cwYxoRCoolIGgrMdWn8=}
+    engines: {node: '>= 0.8'}
+    dependencies:
+      delayed-stream: 1.0.0
+    dev: false
+
   /commander/2.20.3:
     resolution: {integrity: sha1-/UhehMA+tIgcIHIrpIA16FMa6zM=}
 
@@ -1235,17 +1237,6 @@ packages:
     dependencies:
       ms: 2.0.0
 
-  /debug/3.1.0:
-    resolution: {integrity: sha1-W7WgZyYotkFJVmuhaBnmFRjGcmE=}
-    peerDependencies:
-      supports-color: '*'
-    peerDependenciesMeta:
-      supports-color:
-        optional: true
-    dependencies:
-      ms: 2.0.0
-    dev: false
-
   /debug/4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
@@ -1266,6 +1257,11 @@ packages:
   /define-lazy-prop/2.0.0:
     resolution: {integrity: sha1-P3rkIRKbyqrJvHSQXJigAJ7J7n8=}
     engines: {node: '>=8'}
+
+  /delayed-stream/1.0.0:
+    resolution: {integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=}
+    engines: {node: '>=0.4.0'}
+    dev: false
 
   /depd/1.1.2:
     resolution: {integrity: sha1-m81S4UwJd2PnSbJ0xDRu0uVgtak=}
@@ -1586,13 +1582,13 @@ packages:
       debug:
         optional: true
 
-  /follow-redirects/1.5.10:
-    resolution: {integrity: sha1-e3qfmuov3/NnhqlP9kPtB/T/Xio=}
-    engines: {node: '>=4.0'}
+  /form-data/4.0.0:
+    resolution: {integrity: sha1-k5Gdrq82HuUpWEubMWZNwSyfpFI=}
+    engines: {node: '>= 6'}
     dependencies:
-      debug: 3.1.0
-    transitivePeerDependencies:
-      - supports-color
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.35
     dev: false
 
   /forwarded/0.2.0:
@@ -1875,11 +1871,6 @@ packages:
     dependencies:
       binary-extensions: 2.2.0
 
-  /is-buffer/2.0.5:
-    resolution: {integrity: sha1-68JS5ADSL/jXf6CYiIIaJKZYwZE=}
-    engines: {node: '>=4'}
-    dev: false
-
   /is-core-module/2.9.0:
     resolution: {integrity: sha512-+5FPy5PnwmO3lvfMb0AsoPaBG+5KHUI0wYFXOtYPnVVVspTFUuMZNfNaNVRt3FZadstu2c8x23vykRW/NBoU6A==}
     dependencies:
@@ -1957,10 +1948,6 @@ packages:
       '@types/node': 17.0.42
       merge-stream: 2.0.0
       supports-color: 8.1.1
-
-  /js-cookie/2.2.1:
-    resolution: {integrity: sha1-aeEG3F1YBolFYpAqpbrsN0Tpsrg=}
-    dev: false
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}

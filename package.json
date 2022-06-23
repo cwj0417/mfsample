@@ -1,5 +1,5 @@
 {
-  "name": "module-federation",
+  "name": "full-elec-login-component",
   "private": true,
   "workspaces": {
     "packages": [

@@ -1,5 +1,5 @@
 {
-  "name": "app2",
+  "name": "remoteApp",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -9,8 +9,8 @@
   },
   "dependencies": {
     "@babel/preset-typescript": "^7.17.12",
-    "@xforce/standard-http-request": "^1.0.1",
     "antd": "3",
+    "axios": "^0.27.2",
     "css-loader": "^6.7.1",
     "live-server": "^1.2.2",
     "react": "16",

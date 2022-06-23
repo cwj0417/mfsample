@@ -36,6 +36,7 @@ const Form3: FC<{
 
   useEffect(() => {
     pollingHandler.current = setInterval(() => {
+      if (!qrCode) return
       login3({
         companyTaxNo,
         step: 2,
@@ -57,7 +58,7 @@ const Form3: FC<{
       clearInterval(pollingHandler.current);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [qrCode]);
 
   const fetchQrCode = () => {
     setRequesting(true);
